@@ -28,6 +28,9 @@ migrate_working_dir/
 .flutter-plugins
 .flutter-plugins-dependencies
 .packages
+.web
+.linux
+.macos
 .pub-cache/
 .pub/
 /build/
