@@ -3,6 +3,7 @@ import 'package:ev_app/screens/splash_screen.dart';
 import 'package:ev_app/screens/start_screen.dart';
 import 'package:ev_app/screens/vehicle_details_screen.dart';
 import 'package:ev_app/screens/vehicle_details_screen_two.dart';
+import 'package:ev_app/screens/welcome_back_screen.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +48,7 @@ class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => VehicleDetailsScreenTwo()),
+                        builder: (context) => WelcomeBackScreen()),
                   );
                 },
               ),
