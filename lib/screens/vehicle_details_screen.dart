@@ -1,20 +1,27 @@
 import 'package:ev_app/screens/login_screen.dart';
 import 'package:ev_app/screens/splash_screen.dart';
 import 'package:ev_app/screens/start_screen.dart';
-import 'package:ev_app/screens/vehicle_details_screen.dart';
-import 'package:ev_app/screens/vehicle_details_screen_two.dart';
-
+import 'package:intl/intl.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class PersonalDetailsScreen extends StatefulWidget {
-  const PersonalDetailsScreen({Key? key}) : super(key: key);
+class VehicleDetailsScreen extends StatefulWidget {
+  const VehicleDetailsScreen({Key? key}) : super(key: key);
 
   @override
-  State<PersonalDetailsScreen> createState() => _PersonalDetailsScreenState();
+  State<VehicleDetailsScreen> createState() => _VehicleDetailsScreenState();
 }
 
-class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
+class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
+  @override
+  void initState() {
+    DateTime dateTime = DateTime.now();
+    String formattedDate = DateFormat('yyyy/MM/dd').format(dateTime);
+    _dateinput.text = formattedDate;
+    // TODO: implement initState
+    super.initState();
+  }
+
   var items = [
     'LPG propelled',
     'LPG/liquid fuel',
@@ -24,13 +31,13 @@ class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
   ];
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-
+  TextEditingController _dateinput = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Personal Details',
+          'Vehicle Details',
           style: TextStyle(color: Colors.green),
         ),
         iconTheme: IconThemeData(color: Colors.green),
@@ -46,8 +53,7 @@ class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => VehicleDetailsScreenTwo()),
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
                   );
                 },
               ),
@@ -77,7 +83,7 @@ class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
                     Row(
                       children: [
                         Text(
-                          "First Name",
+                          "Plate number ",
                           overflow: TextOverflow.ellipsis,
                           style: Theme.of(context)
                               .textTheme
@@ -115,7 +121,7 @@ class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
                     Row(
                       children: [
                         Text(
-                          "Last Name",
+                          "Vehicle Identification number ",
                           overflow: TextOverflow.ellipsis,
                           style: Theme.of(context)
                               .textTheme
@@ -153,7 +159,7 @@ class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
                     Row(
                       children: [
                         Text(
-                          "Country of Residence",
+                          "Country of registration ",
                           overflow: TextOverflow.ellipsis,
                           style: Theme.of(context)
                               .textTheme
@@ -191,7 +197,7 @@ class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
                     Row(
                       children: [
                         Text(
-                          "Home Location",
+                          "Date of registration ",
                           overflow: TextOverflow.ellipsis,
                           style: Theme.of(context)
                               .textTheme
@@ -211,100 +217,44 @@ class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
                       height: 10,
                     ),
                     TextField(
-                      controller: nameController,
+                      controller:
+                          _dateinput, //editing controller of this TextField
                       decoration: const InputDecoration(
                           // hintText: 'User Name',
-                          border: OutlineInputBorder(),
-                          floatingLabelBehavior: FloatingLabelBehavior.never),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Text(
-                          "Phone",
-                          overflow: TextOverflow.ellipsis,
-                          style: Theme.of(context)
-                              .textTheme
-                              .subtitle2!
-                              .copyWith(color: Colors.green),
-                        ),
-                        Text(
-                          "*",
-                          style: Theme.of(context)
-                              .textTheme
-                              .subtitle2!
-                              .copyWith(color: Colors.red),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    TextField(
-                      controller: nameController,
-                      decoration: const InputDecoration(
-                          hintText: '+254',
-                          border: OutlineInputBorder(),
-                          floatingLabelBehavior: FloatingLabelBehavior.never),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            "Do you have rooftop solar greater than 3 KW at home?",
-                            // overflow: TextOverflow.ellipsis,
-                            style: Theme.of(context)
-                                .textTheme
-                                .subtitle2!
-                                .copyWith(color: Colors.green),
+                          suffixIcon: Icon(
+                            color: Colors.green,
+                            Icons.calendar_today,
                           ),
-                        ),
-                        Text(
-                          "*",
-                          style: Theme.of(context)
-                              .textTheme
-                              .subtitle2!
-                              .copyWith(color: Colors.red),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    DropdownButtonFormField(
-                        items: items.map((String category) {
-                          return new DropdownMenuItem(
-                            value: category,
-                            child: Text(category),
-                          );
-                        }).toList(),
-                        onChanged: (newValue) {
-                          // do other stuff with _category
-                        },
-                        // value: items,
-                        decoration: InputDecoration(
-                          contentPadding: EdgeInsets.fromLTRB(10, 20, 10, 20),
                           border: OutlineInputBorder(),
-                          // filled: true,
-                          // fillColor: Colors.grey[200],
-                        )),
+                          floatingLabelBehavior: FloatingLabelBehavior.never),
+                      readOnly:
+                          true, //set it true, so that user will not able to edit text
+                      onTap: () async {
+                        DateTime? pickedDate = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(
+                                2000), //DateTime.now() - not to allow to choose before today.
+                            lastDate: DateTime(2101));
+
+                        if (pickedDate != null) {
+                          print(
+                              pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+                          String formattedDate =
+                              DateFormat('dd/MM/yyyy').format(pickedDate);
+                          print(
+                              formattedDate); //formatted date output using intl package =>  2021-03-16
+                          //you can implement different kind of Date Format here according to your requirement
+
+                          setState(() {
+                            _dateinput.text =
+                                formattedDate; //set output date to TextField value.
+                          });
+                        } else {
+                          print("Date is not selected");
+                        }
+                      },
+                    ),
                   ],
                 ),
               ),
@@ -318,7 +268,7 @@ class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
                       children: [
                         Expanded(
                           child: Text(
-                            "Involvement in carbon accounting/reporting",
+                            "Which country does the vehicle spend 95% of the time ?",
                             // overflow: TextOverflow.ellipsis,
                             style: Theme.of(context)
                                 .textTheme
