@@ -1,3 +1,5 @@
+import 'package:ev_app/screens/forgot_password_screen.dart';
+import 'package:ev_app/screens/forgot_password_screen_two.dart';
 import 'package:ev_app/screens/login_screen.dart';
 import 'package:ev_app/screens/splash_screen.dart';
 import 'package:ev_app/screens/start_screen.dart';
@@ -48,7 +50,7 @@ class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => WelcomeBackScreen()),
+                        builder: (context) => ForgotPasswordScreenTwo()),
                   );
                 },
               ),
