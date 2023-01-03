@@ -1,3 +1,4 @@
+import 'package:ev_app/screens/forgot_password_screen_two.dart';
 import 'package:ev_app/screens/splash_screen.dart';
 import 'package:ev_app/screens/start_screen.dart';
 
@@ -138,6 +139,11 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       style: TextStyle(fontSize: 18),
                     ),
                     onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ForgotPasswordScreenTwo()),
+                      );
                       print(nameController.text);
                       print(passwordController.text);
                     },

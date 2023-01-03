@@ -1,5 +1,6 @@
 import 'package:ev_app/screens/splash_screen.dart';
 import 'package:ev_app/screens/start_screen.dart';
+import 'package:ev_app/screens/welcome_back_screen.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -259,6 +260,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: TextStyle(fontSize: 18),
                     ),
                     onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => WelcomeBackScreen()),
+                      );
                       print(nameController.text);
                       print(passwordController.text);
                     },

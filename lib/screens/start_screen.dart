@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:ev_app/screens/login_screen.dart';
+import 'package:ev_app/screens/personal_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -62,7 +64,13 @@ class _SplashScreenState extends State<SplashScreen> {
                 child: const Text(
                   'Register',
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => PersonalDetailsScreen()),
+                  );
+                },
               )),
           SizedBox(
             height: 20,
@@ -77,7 +85,12 @@ class _SplashScreenState extends State<SplashScreen> {
                     side: const BorderSide(color: Colors.green, width: 0.5)),
                 child:
                     const Text('Login', style: TextStyle(color: Colors.green)),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                  );
+                },
               )),
         ],
       ),

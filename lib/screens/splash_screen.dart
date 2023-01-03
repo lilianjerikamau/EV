@@ -1,3 +1,4 @@
+import 'package:ev_app/screens/start_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -12,24 +13,34 @@ class StartScreen extends StatefulWidget {
 class _StartScreenState extends State<StartScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Align(
-            alignment: Alignment.center,
-            child: Column(
-              children: [
-                Image.asset('assets/images/smallcar.png'),
-                Text(
-                  'How much is your priceless EV miles worth?',
-                  style: TextStyle(color: Colors.green),
+    return Material(
+      child: InkWell(
+        onTap: () {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => SplashScreen()),
+          );
+        },
+        child: Scaffold(
+          backgroundColor: Colors.white,
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Align(
+                alignment: Alignment.center,
+                child: Column(
+                  children: [
+                    Image.asset('assets/images/smallcar.png'),
+                    Text(
+                      'How much is your priceless EV miles worth?',
+                      style: TextStyle(color: Colors.green),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
