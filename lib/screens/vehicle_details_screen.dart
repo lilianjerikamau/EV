@@ -1,6 +1,8 @@
+import 'package:ev_app/screens/home_screen.dart';
 import 'package:ev_app/screens/login_screen.dart';
 import 'package:ev_app/screens/splash_screen.dart';
 import 'package:ev_app/screens/start_screen.dart';
+import 'package:ev_app/screens/vehicle_details_screen_two.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +55,7 @@ class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                    MaterialPageRoute(builder: (context) => HomePage()),
                   );
                 },
               ),
@@ -320,6 +322,10 @@ class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
                       style: TextStyle(fontSize: 18),
                     ),
                     onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => VehicleDetailsScreenTwo()),
+                      );
                       print(nameController.text);
                       print(passwordController.text);
                     },

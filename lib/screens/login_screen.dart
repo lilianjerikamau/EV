@@ -1,5 +1,7 @@
+import 'package:ev_app/screens/home_screen.dart';
 import 'package:ev_app/screens/splash_screen.dart';
 import 'package:ev_app/screens/start_screen.dart';
+import 'package:ev_app/screens/vehicle_details_screen.dart';
 import 'package:ev_app/screens/welcome_back_screen.dart';
 
 import 'package:flutter/cupertino.dart';
@@ -256,15 +258,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: const EdgeInsets.fromLTRB(45, 0, 45, 0),
                   child: ElevatedButton(
                     child: const Text(
-                      'Register Account   >',
+                      'Login   >',
                       style: TextStyle(fontSize: 18),
                     ),
                     onPressed: () {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => WelcomeBackScreen()),
-                      );
+                            builder: (context) => HomePage(),
+                      ));
                       print(nameController.text);
                       print(passwordController.text);
                     },

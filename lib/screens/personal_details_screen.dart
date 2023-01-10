@@ -50,7 +50,7 @@ class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => ForgotPasswordScreenTwo()),
+                        builder: (context) => SplashScreen()),
                   );
                 },
               ),
@@ -364,7 +364,11 @@ class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
               SizedBox(
                 height: 20,
               ),
-              Container(
+              InkWell(
+                onTap:(){
+
+                } ,
+                child:Container(
                   height: 50,
                   padding: const EdgeInsets.fromLTRB(45, 0, 45, 0),
                   child: ElevatedButton(
@@ -373,10 +377,16 @@ class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
                       style: TextStyle(fontSize: 18),
                     ),
                     onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => LoginScreen()),
+                      );
                       print(nameController.text);
                       print(passwordController.text);
                     },
-                  )),
+                  )),),
+
               SizedBox(
                 height: 25,
               )

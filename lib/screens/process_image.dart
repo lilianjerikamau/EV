@@ -1,3 +1,5 @@
+import 'package:ev_app/screens/odometer_picture.dart';
+import 'package:ev_app/screens/process_image_two.dart';
 import 'package:ev_app/screens/set_new_password_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -30,11 +32,11 @@ class _ProcessImageState extends State<ProcessImage> {
                   color: Colors.green,
                 ),
                 onPressed: () {
-                  // Navigator.pushReplacement(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //       builder: (context) => ForgotPasswordScreenTwo()),
-                  // );
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => OdometerPicture()),
+                  );
                 },
               ),
             );
@@ -82,11 +84,11 @@ class _ProcessImageState extends State<ProcessImage> {
                   style: TextStyle(fontSize: 18),
                 ),
                 onPressed: () {
-                  // Navigator.pushReplacement(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //       builder: (context) => WelcomeBackScreen()),
-                  // );
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ProcessImageTwo()),
+                  );
                 },
               )),
           SizedBox(

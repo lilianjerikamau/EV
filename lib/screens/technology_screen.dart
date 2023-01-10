@@ -350,6 +350,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
               ),
             ],
           ),
-        ));
+        )
+    );
   }
 }

@@ -1,3 +1,5 @@
+import 'package:ev_app/screens/choose_vehicle_screen.dart';
+import 'package:ev_app/screens/process_image.dart';
 import 'package:ev_app/screens/set_new_password_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -30,11 +32,11 @@ class _OdometerPictureState extends State<OdometerPicture> {
                   color: Colors.green,
                 ),
                 onPressed: () {
-                  // Navigator.pushReplacement(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //       builder: (context) => ForgotPasswordScreenTwo()),
-                  // );
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ChooseVehicleScreen()),
+                  );
                 },
               ),
             );
@@ -66,23 +68,32 @@ class _OdometerPictureState extends State<OdometerPicture> {
                 SizedBox(
                   height: 15,
                 ),
-                Stack(children: [
-                  Container(
-                    color: Colors.white,
-                    child: Align(
-                        alignment: Alignment.center,
-                        child: Image.asset('assets/images/odometer.png')),
-                  ),
-                  Positioned(
-                    bottom: -10,
-                    right: 170,
-                    child: Icon(
-                      Icons.camera_alt_rounded,
-                      color: Colors.green,
-                      size: 80,
+                InkWell(
+                  onTap: (){
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ProcessImage()),
+                    );
+                  },
+                  child: Stack(children: [
+                    Container(
+                      color: Colors.white,
+                      child: Align(
+                          alignment: Alignment.center,
+                          child: Image.asset('assets/images/odometer.png')),
                     ),
-                  ),
-                ]),
+                    Positioned(
+                      bottom: -10,
+                      right: 170,
+                      child: Icon(
+                        Icons.camera_alt_rounded,
+                        color: Colors.green,
+                        size: 80,
+                      ),
+                    ),
+                  ]),
+                ),
               ],
             ),
           ),

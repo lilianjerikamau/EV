@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:ev_app/screens/login_screen.dart';
 import 'package:ev_app/screens/personal_details_screen.dart';
+import 'package:ev_app/screens/welcome_back_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -88,7 +89,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                    MaterialPageRoute(builder: (context) => WelcomeBackScreen()),
                   );
                 },
               )),

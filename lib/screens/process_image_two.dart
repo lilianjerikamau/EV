@@ -1,4 +1,5 @@
 import 'package:ev_app/screens/set_new_password_screen.dart';
+import 'package:ev_app/screens/sodo_results.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -178,11 +179,11 @@ class _ProcessImageTwoState extends State<ProcessImageTwo> {
                     style: TextStyle(fontSize: 18),
                   ),
                   onPressed: () {
-                    // Navigator.pushReplacement(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //       builder: (context) => WelcomeBackScreen()),
-                    // );
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SodoResultsScreen()),
+                    );
                   },
                 )),
             SizedBox(

@@ -1,4 +1,5 @@
 import 'package:ev_app/screens/forgot_password_screen.dart';
+import 'package:ev_app/screens/home_screen.dart';
 import 'package:ev_app/screens/personal_details_screen.dart';
 import 'package:ev_app/screens/set_new_password_screen.dart';
 import 'package:ev_app/screens/splash_screen.dart';
@@ -271,7 +272,7 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
                   onTap: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => LoginScreen()),
+                      MaterialPageRoute(builder: (context) => HomePage()),
                     );
                   },
                   child: Container(
@@ -283,6 +284,10 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
                           style: TextStyle(fontSize: 18),
                         ),
                         onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => HomePage()),
+                          );
                           print(nameController.text);
                           print(passwordController.text);
                         },
