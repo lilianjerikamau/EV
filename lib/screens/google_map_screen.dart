@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:getwidget/getwidget.dart';
-
+import 'package:ev_app/main.dart';
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
   @override
@@ -9,7 +9,7 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  LatLng initialLocation = const LatLng(37.422131, -122.084801);
+  LatLng initialLocation =  LatLng(double.parse(lat), double.parse(long));
   BitmapDescriptor markerIcon = BitmapDescriptor.defaultMarker;
 
   @override
@@ -37,9 +37,9 @@ class _MapScreenState extends State<MapScreen> {
         title: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(
             'Hello Muhu',
-            style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
+            style: TextStyle(color: Color(0xFF75A843), fontWeight: FontWeight.bold),
           ),
-          Text('Great to see you back!', style: TextStyle(color: Colors.green))
+          Text('Great to see you back!', style: TextStyle(color: Color(0xFF75A843)))
         ]),
         backgroundColor: Colors.white,
       ),
@@ -58,7 +58,7 @@ class _MapScreenState extends State<MapScreen> {
                 markers: {
                   Marker(
                     markerId: const MarkerId("marker1"),
-                    position: const LatLng(37.422131, -122.084801),
+                    position:  LatLng(double.parse(lat), double.parse(long)),
                     draggable: true,
                     onDragEnd: (value) {
                       // value is the new position
@@ -82,11 +82,11 @@ class _MapScreenState extends State<MapScreen> {
                   Text(
                     'Stations near you ',
                     style: TextStyle(
-                        color: Colors.green, fontWeight: FontWeight.bold),
+                        color: Color(0xFF75A843), fontWeight: FontWeight.bold),
                   ),
                   Icon(
                     Icons.settings_suggest_sharp,
-                    color: Colors.green,
+                    color: Color(0xFF75A843),
                   )
                 ]),
           ),
@@ -106,38 +106,40 @@ class _MapScreenState extends State<MapScreen> {
                         fit: BoxFit.cover,
                       ),
                       showImage: true,
-                      content: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Nifas Station",
-                                  style: TextStyle(fontSize: 15),
-                                  textAlign: TextAlign.start,
-                                ),
-                                Text(
-                                  "2.5 KM",
-                                  style: TextStyle(fontSize: 15),
-                                  textAlign: TextAlign.start,
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              "Debra Zeit road,Addis Ababa",
-                              style: TextStyle(fontSize: 15),
-                              textAlign: TextAlign.start,
-                            ),
-                            Text(
-                              "Electric Station",
-                              style:
-                                  TextStyle(fontSize: 15, color: Colors.grey),
-                            )
-                          ]),
+                      content: SingleChildScrollView(
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Nifas Station",
+                                    style: TextStyle(fontSize: 15),
+                                    textAlign: TextAlign.start,
+                                  ),
+                                  Text(
+                                    "2.5 KM",
+                                    style: TextStyle(fontSize: 15),
+                                    textAlign: TextAlign.start,
+                                  )
+                                ],
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "Debra Zeit road,Addis Ababa",
+                                style: TextStyle(fontSize: 15),
+                                textAlign: TextAlign.start,
+                              ),
+                              Text(
+                                "Electric Station",
+                                style:
+                                    TextStyle(fontSize: 15, color: Colors.grey),
+                              )
+                            ]),
+                      ),
                     ),
                   ),
                 ),

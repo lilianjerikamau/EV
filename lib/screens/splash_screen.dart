@@ -43,7 +43,7 @@
 //                     Image.asset('assets/images/smallcar.png'),
 //                     Text(
 //                       'How much is your priceless EV miles worth?',
-//                       style: TextStyle(color: Colors.green),
+//                       style: TextStyle(color: Color(0xFF75A843)),
 //                     ),
 //                   ],
 //                 ),
@@ -116,7 +116,7 @@ class StartScreen extends StatefulWidget {
                     Image.asset('assets/images/smallcar.png'),
                     Text(
                       'How much is your priceless EV miles worth?',
-                      style: TextStyle(color: Colors.green),
+                      style: TextStyle(color: Color(0xFF75A843)),
                     ),
                   ],
                 ),

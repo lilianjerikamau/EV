@@ -39,9 +39,9 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: AppBar(
         title: Text(
           'Login Details',
-          style: TextStyle(color: Colors.green),
+          style: TextStyle(color: Color(0xFF75A843)),
         ),
-        iconTheme: IconThemeData(color: Colors.green),
+        iconTheme: IconThemeData(color: Color(0xFF75A843)),
         leading: Builder(
           builder: (BuildContext context) {
             return RotatedBox(
@@ -49,7 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: IconButton(
                 icon: Icon(
                   Icons.arrow_back_ios,
-                  color: Colors.green,
+                  color: Color(0xFF75A843),
                 ),
                 onPressed: () {
                   Navigator.pushReplacement(
@@ -65,8 +65,8 @@ class _LoginScreenState extends State<LoginScreen> {
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(6.0),
           child: LinearProgressIndicator(
-            backgroundColor: Colors.green.withOpacity(0.3),
-            valueColor: new AlwaysStoppedAnimation<Color>(Colors.green),
+            backgroundColor: Color(0xFF75A843).withOpacity(0.3),
+            valueColor: new AlwaysStoppedAnimation<Color>(Color(0xFF75A843)),
             value: 0.5,
           ),
         ),
@@ -79,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                 decoration: BoxDecoration(
                     border: Border.all(
-                  color: Colors.green,
+                  color: Color(0xFF75A843),
                   width: 1,
                 )),
                 padding: const EdgeInsets.fromLTRB(100, 10, 100, 10),
@@ -96,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         text: 'G  ',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: Colors.green,
+                            color: Color(0xFF75A843),
                             fontSize: 17),
                         children: <TextSpan>[
                           TextSpan(
@@ -105,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                             style: TextStyle(
                                 fontWeight: FontWeight.normal,
-                                color: Colors.green),
+                                color: Color(0xFF75A843)),
                           )
                         ],
                       ),
@@ -127,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: Theme.of(context)
                               .textTheme
                               .subtitle2!
-                              .copyWith(color: Colors.green),
+                              .copyWith(color: Color(0xFF75A843)),
                         ),
                         Text(
                           "*",
@@ -165,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: Theme.of(context)
                               .textTheme
                               .subtitle2!
-                              .copyWith(color: Colors.green),
+                              .copyWith(color: Color(0xFF75A843)),
                         ),
                         Text(
                           "*",
@@ -217,7 +217,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: Theme.of(context)
                               .textTheme
                               .subtitle2!
-                              .copyWith(color: Colors.green),
+                              .copyWith(color: Color(0xFF75A843)),
                         ),
                         Text(
                           "*",
@@ -282,7 +282,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               child: CircularProgressIndicator()),
                           backgroundColor: Colors.white,
                           messageTextStyle: TextStyle(
-                              color: Colors.green,
+                              color: Color(0xFF75A843),
                               fontSize: 13.0,
                               fontWeight: FontWeight.bold),
                           message: 'Please wait',

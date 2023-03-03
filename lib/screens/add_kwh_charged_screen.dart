@@ -4,8 +4,10 @@ import 'package:ev_app/screens/soecs_results_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:progress_dialog/progress_dialog.dart';
-
 import '../Services/auth_service.dart';
+import 'package:ev_app/main.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class AddKwhChargedScreen extends StatefulWidget {
   final vehicle_id;
@@ -13,6 +15,7 @@ class AddKwhChargedScreen extends StatefulWidget {
   final state_id;
   final regno;
   final model;
+  final ev_technology;
 
   const AddKwhChargedScreen(
       {Key? key,
@@ -20,6 +23,7 @@ class AddKwhChargedScreen extends StatefulWidget {
       required this.state_id,
       required this.country_id,
       required this.regno,
+        required this.ev_technology,
       required this.model})
       : super(key: key);
 
@@ -48,22 +52,24 @@ class _AddKwhChargedScreenState extends State<AddKwhChargedScreen> {
   var _selectedCountry = null;
   var _selectedState = null;
   bool selectedHomeValue = true;
-
+  String stAddress = '';
   @override
   void initState() {
     // TODO: implement initState
+
     getCountries();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: Text(
             'Add Kwh Charged',
-            style: TextStyle(color: Colors.green),
+            style: TextStyle(color: Color(0xFF75A843)),
           ),
-          iconTheme: IconThemeData(color: Colors.green),
+          iconTheme: IconThemeData(color: Color(0xFF75A843)),
           leading: Builder(
             builder: (BuildContext context) {
               return RotatedBox(
@@ -71,7 +77,7 @@ class _AddKwhChargedScreenState extends State<AddKwhChargedScreen> {
                 child: IconButton(
                   icon: Icon(
                     Icons.arrow_back_ios,
-                    color: Colors.green,
+                    color: Color(0xFF75A843),
                   ),
                   onPressed: () {
                     Navigator.pushReplacement(
@@ -83,6 +89,7 @@ class _AddKwhChargedScreenState extends State<AddKwhChargedScreen> {
                                 state_id: widget.state_id,
                                 reg_no: widget.regno,
                                 model: widget.model,
+                              ev_technology:widget.ev_technology,
                               )),
                     );
                   },
@@ -94,8 +101,8 @@ class _AddKwhChargedScreenState extends State<AddKwhChargedScreen> {
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(6.0),
             child: LinearProgressIndicator(
-              backgroundColor: Colors.green.withOpacity(0.3),
-              valueColor: new AlwaysStoppedAnimation<Color>(Colors.green),
+              backgroundColor: Color(0xFF75A843).withOpacity(0.3),
+              valueColor: new AlwaysStoppedAnimation<Color>(Color(0xFF75A843)),
               value: 0.5,
             ),
           ),
@@ -120,7 +127,7 @@ class _AddKwhChargedScreenState extends State<AddKwhChargedScreen> {
                             style: Theme.of(context)
                                 .textTheme
                                 .subtitle2!
-                                .copyWith(color: Colors.green),
+                                .copyWith(color: Color(0xFF75A843)),
                           ),
                           Text(
                             "*",
@@ -145,178 +152,179 @@ class _AddKwhChargedScreenState extends State<AddKwhChargedScreen> {
                     ],
                   ),
                 ),
-                Container(
-                  padding: const EdgeInsets.all(10),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            "At home",
-                            overflow: TextOverflow.ellipsis,
-                            style: Theme.of(context)
-                                .textTheme
-                                .subtitle2!
-                                .copyWith(color: Colors.green),
-                          ),
-                          Text(
-                            "*",
-                            style: Theme.of(context)
-                                .textTheme
-                                .subtitle2!
-                                .copyWith(color: Colors.red),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      DropdownButtonFormField(
-                          items: items2.map((String category) {
-                            return new DropdownMenuItem(
-                              value: category,
-                              child: Text(category),
-                            );
-                          }).toList(),
-                          onChanged: (newValue) {
-                          
-                            _selectedHomeValue = newValue;
-                            if (_selectedHomeValue!.contains("Yes")) {
-                              setState(() {
-                                print(_selectedHomeValue);
-                                selectedHomeValue = true;
-                                country_id =null;
-                                states_id =null;
-                              });
-                            } else {
-                              setState(() {
-                                selectedHomeValue = false;
-                              });
-                            }
-                          },
-                          // value: items,
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.fromLTRB(10, 20, 10, 20),
-                            border: OutlineInputBorder(),
-                            // filled: true,
-                            // fillColor: Colors.grey[200],
-                          )),
-                    ],
-                  ),
-                ),
-            selectedHomeValue !=true ? Container(
-                  padding: const EdgeInsets.all(10),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            "Country",
-                            overflow: TextOverflow.ellipsis,
-                            style: Theme.of(context)
-                                .textTheme
-                                .subtitle2!
-                                .copyWith(color: Colors.green),
-                          ),
-                          Text(
-                            "*",
-                            style: Theme.of(context)
-                                .textTheme
-                                .subtitle2!
-                                .copyWith(color: Colors.red),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      
-                      DropdownButtonFormField(
-                          items: countries.map((val) {
-                            return DropdownMenuItem(
-                              value: val,
-                              child: Text(val['name']),
-                            );
-                          }).toList(),
-                          onChanged: (newValue) {
-                            setState(() {
-                              _selectedCountry = newValue;
-                              country_id = _selectedCountry['id'];
-                              hasState = _selectedCountry['hasStates'];
-                              if (hasState == true) {
-                                getStates();
-                              }
-                              print(country_id);
-                              print(hasState);
-                              print(_selectedCountry);
-                            });
-                          },
-                          // value: items,
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.fromLTRB(10, 20, 10, 20),
-                            border: OutlineInputBorder(),
-                            // filled: true,
-                            // fillColor: Colors.grey[200],
-                          )),
-                    ],
-                  ),
-                ):Container(),
-                hasState == true && selectedHomeValue !=true
-                    ? Container(
-                        padding: const EdgeInsets.all(10),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Text(
-                                  "State",
-                                  overflow: TextOverflow.ellipsis,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .subtitle2!
-                                      .copyWith(color: Colors.green),
-                                ),
-                                Text(
-                                  "*",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .subtitle2!
-                                      .copyWith(color: Colors.red),
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            DropdownButtonFormField(
-                                items: states.map((val) {
-                                  return new DropdownMenuItem(
-                                    value: val,
-                                    child: Text(val['name']),
-                                  );
-                                }).toList(),
-                                onChanged: (newValue) {
-                                  _selectedState = newValue;
-                                  states_id = _selectedState['id'];
-                                },
-                                // value: items,
-                                decoration: InputDecoration(
-                                  contentPadding:
-                                      EdgeInsets.fromLTRB(10, 20, 10, 20),
-                                  border: OutlineInputBorder(),
-                                  // filled: true,
-                                  // fillColor: Colors.grey[200],
-                                )),
-                          ],
-                        ),
-                      )
-                    : Container(),
+                // Container(
+                //   padding: const EdgeInsets.all(10),
+                //   child: Column(
+                //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+                //     crossAxisAlignment: CrossAxisAlignment.start,
+                //     children: [
+                //       Row(
+                //         children: [
+                //           Text(
+                //             "At home",
+                //             overflow: TextOverflow.ellipsis,
+                //             style: Theme.of(context)
+                //                 .textTheme
+                //                 .subtitle2!
+                //                 .copyWith(color: Color(0xFF75A843)),
+                //           ),
+                //           Text(
+                //             "*",
+                //             style: Theme.of(context)
+                //                 .textTheme
+                //                 .subtitle2!
+                //                 .copyWith(color: Colors.red),
+                //           )
+                //         ],
+                //       ),
+                //       SizedBox(
+                //         height: 10,
+                //       ),
+                //       DropdownButtonFormField(
+                //           items: items2.map((String category) {
+                //             return new DropdownMenuItem(
+                //               value: category,
+                //               child: Text(category),
+                //             );
+                //           }).toList(),
+                //           onChanged: (newValue) {
+                //             _selectedHomeValue = newValue;
+                //             if (_selectedHomeValue!.contains("Yes")) {
+                //               setState(() {
+                //                 print(_selectedHomeValue);
+                //                 selectedHomeValue = true;
+                //                 country_id = null;
+                //                 states_id = null;
+                //               });
+                //             } else {
+                //               setState(() {
+                //                 selectedHomeValue = false;
+                //               });
+                //             }
+                //           },
+                //           // value: items,
+                //           decoration: InputDecoration(
+                //             contentPadding: EdgeInsets.fromLTRB(10, 20, 10, 20),
+                //             border: OutlineInputBorder(),
+                //             // filled: true,
+                //             // fillColor: Colors.grey[200],
+                //           )),
+                //     ],
+                //   ),
+                // ),
+                // selectedHomeValue != true
+                //     ? Container(
+                //         padding: const EdgeInsets.all(10),
+                //         child: Column(
+                //           mainAxisAlignment: MainAxisAlignment.spaceAround,
+                //           crossAxisAlignment: CrossAxisAlignment.start,
+                //           children: [
+                //             Row(
+                //               children: [
+                //                 Text(
+                //                   "Country",
+                //                   overflow: TextOverflow.ellipsis,
+                //                   style: Theme.of(context)
+                //                       .textTheme
+                //                       .subtitle2!
+                //                       .copyWith(color: Color(0xFF75A843)),
+                //                 ),
+                //                 Text(
+                //                   "*",
+                //                   style: Theme.of(context)
+                //                       .textTheme
+                //                       .subtitle2!
+                //                       .copyWith(color: Colors.red),
+                //                 )
+                //               ],
+                //             ),
+                //             SizedBox(
+                //               height: 10,
+                //             ),
+                //             DropdownButtonFormField(
+                //                 items: countries.map((val) {
+                //                   return DropdownMenuItem(
+                //                     value: val,
+                //                     child: Text(val['name']),
+                //                   );
+                //                 }).toList(),
+                //                 onChanged: (newValue) {
+                //                   setState(() {
+                //                     _selectedCountry = newValue;
+                //                     country_id = _selectedCountry['id'];
+                //                     hasState = _selectedCountry['hasStates'];
+                //                     if (hasState == true) {
+                //                       getStates();
+                //                     }
+                //                     print(country_id);
+                //                     print(hasState);
+                //                     print(_selectedCountry);
+                //                   });
+                //                 },
+                //                 // value: items,
+                //                 decoration: InputDecoration(
+                //                   contentPadding:
+                //                       EdgeInsets.fromLTRB(10, 20, 10, 20),
+                //                   border: OutlineInputBorder(),
+                //                   // filled: true,
+                //                   // fillColor: Colors.grey[200],
+                //                 )),
+                //           ],
+                //         ),
+                //       )
+                //     : Container(),
+                // hasState == true && selectedHomeValue != true
+                //     ? Container(
+                //         padding: const EdgeInsets.all(10),
+                //         child: Column(
+                //           mainAxisAlignment: MainAxisAlignment.spaceAround,
+                //           crossAxisAlignment: CrossAxisAlignment.start,
+                //           children: [
+                //             Row(
+                //               children: [
+                //                 Text(
+                //                   "State",
+                //                   overflow: TextOverflow.ellipsis,
+                //                   style: Theme.of(context)
+                //                       .textTheme
+                //                       .subtitle2!
+                //                       .copyWith(color: Color(0xFF75A843)),
+                //                 ),
+                //                 Text(
+                //                   "*",
+                //                   style: Theme.of(context)
+                //                       .textTheme
+                //                       .subtitle2!
+                //                       .copyWith(color: Colors.red),
+                //                 )
+                //               ],
+                //             ),
+                //             SizedBox(
+                //               height: 10,
+                //             ),
+                //             DropdownButtonFormField(
+                //                 items: states.map((val) {
+                //                   return new DropdownMenuItem(
+                //                     value: val,
+                //                     child: Text(val['name']),
+                //                   );
+                //                 }).toList(),
+                //                 onChanged: (newValue) {
+                //                   _selectedState = newValue;
+                //                   states_id = _selectedState['id'];
+                //                 },
+                //                 // value: items,
+                //                 decoration: InputDecoration(
+                //                   contentPadding:
+                //                       EdgeInsets.fromLTRB(10, 20, 10, 20),
+                //                   border: OutlineInputBorder(),
+                //                   // filled: true,
+                //                   // fillColor: Colors.grey[200],
+                //                 )),
+                //           ],
+                //         ),
+                //       )
+                //     : Container(),
                 SizedBox(
                   height: 20,
                 ),
@@ -329,7 +337,11 @@ class _AddKwhChargedScreenState extends State<AddKwhChargedScreen> {
                         'Calculate SOECS   >',
                         style: TextStyle(fontSize: 18),
                       ),
-                      onPressed: () {
+                      onPressed: () async {
+                        print('country');
+                        print(country);
+                        print('state');
+                        print(state);
                         form = _formKey.currentState;
                         ProgressDialog dial = new ProgressDialog(context,
                             type: ProgressDialogType.Normal);
@@ -339,7 +351,7 @@ class _AddKwhChargedScreenState extends State<AddKwhChargedScreen> {
                               child: CircularProgressIndicator()),
                           backgroundColor: Colors.white,
                           messageTextStyle: TextStyle(
-                              color: Colors.green,
+                              color: Color(0xFF75A843),
                               fontSize: 13.0,
                               fontWeight: FontWeight.bold),
                           message: 'Please wait',
@@ -352,11 +364,11 @@ class _AddKwhChargedScreenState extends State<AddKwhChargedScreen> {
                           soecsservice
                               .createSoecs(
                                 kwh_charged!,
-                                "33 0, -38 3",
+                                "${lat},${long}",
                                 widget.vehicle_id,
-                            selectedHomeValue,
-                               states_id,
-                              country_id,
+                                // selectedHomeValue,
+                                "Washington",
+                                "United States"
                               )
                               .then((val) => {
                                     form = _formKey.currentState,
@@ -388,7 +400,7 @@ class _AddKwhChargedScreenState extends State<AddKwhChargedScreen> {
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(SnackBar(
                                           behavior: SnackBarBehavior.floating,
-                                          content: Text(val.message!),
+                                          content: Text('Error'),
                                           duration: Duration(seconds: 3),
                                         ))
                                       }

@@ -40,9 +40,9 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
         appBar: AppBar(
           title: Text(
             '',
-            style: TextStyle(color: Colors.green),
+            style: TextStyle(color: Color(0xFF75A843)),
           ),
-          iconTheme: IconThemeData(color: Colors.green),
+          iconTheme: IconThemeData(color: Color(0xFF75A843)),
           leading: Builder(
             builder: (BuildContext context) {
               return RotatedBox(
@@ -50,7 +50,7 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
                 child: IconButton(
                   icon: Icon(
                     Icons.arrow_back_ios,
-                    color: Colors.green,
+                    color: Color(0xFF75A843),
                   ),
                   onPressed: () {
                     Navigator.pushReplacement(
@@ -66,8 +66,8 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(6.0),
             child: LinearProgressIndicator(
-              backgroundColor: Colors.green.withOpacity(0.3),
-              valueColor: new AlwaysStoppedAnimation<Color>(Colors.green),
+              backgroundColor: Color(0xFF75A843).withOpacity(0.3),
+              valueColor: new AlwaysStoppedAnimation<Color>(Color(0xFF75A843)),
               value: 0.5,
             ),
           ),
@@ -92,7 +92,7 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
                           text: 'Welcome Back\n\n',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: Colors.green,
+                              color: Color(0xFF75A843),
                               fontSize: 20),
                           children: <TextSpan>[
                             TextSpan(
@@ -117,7 +117,7 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
                   margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                   decoration: BoxDecoration(
                       border: Border.all(
-                    color: Colors.green,
+                    color: Color(0xFF75A843),
                     width: 1,
                   )),
                   padding: const EdgeInsets.fromLTRB(100, 10, 100, 10),
@@ -134,7 +134,7 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
                           text: 'G  ',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: Colors.green,
+                              color: Color(0xFF75A843),
                               fontSize: 17),
                           children: <TextSpan>[
                             TextSpan(
@@ -143,7 +143,7 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
 
                               style: TextStyle(
                                   fontWeight: FontWeight.normal,
-                                  color: Colors.green),
+                                  color: Color(0xFF75A843)),
                             )
                           ],
                         ),
@@ -165,7 +165,7 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
                             style: Theme.of(context)
                                 .textTheme
                                 .subtitle2!
-                                .copyWith(color: Colors.green),
+                                .copyWith(color: Color(0xFF75A843)),
                           ),
                           Text(
                             "*",
@@ -203,7 +203,7 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
                             style: Theme.of(context)
                                 .textTheme
                                 .subtitle2!
-                                .copyWith(color: Colors.green),
+                                .copyWith(color: Color(0xFF75A843)),
                           ),
                           Text(
                             "*",
@@ -260,7 +260,7 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
                             'Forgot Password',
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: Colors.green,
+                                color: Color(0xFF75A843),
                                 fontSize: 14),
                           ),
                         ),
@@ -291,7 +291,7 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
                               child: CircularProgressIndicator()),
                           backgroundColor: Colors.white,
                           messageTextStyle: TextStyle(
-                              color: Colors.green,
+                              color: Color(0xFF75A843),
                               fontSize: 13.0,
                               fontWeight: FontWeight.bold),
                           message: 'Please wait',
@@ -358,7 +358,7 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
 
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: Colors.green,
+                              color: Color(0xFF75A843),
                               fontSize: 14),
                         )
                       ],

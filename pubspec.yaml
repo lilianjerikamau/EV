@@ -34,9 +34,10 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+#  cupertino_icons: ^1.0.2
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.9.0
   flutter_test:
     sdk: flutter
 
@@ -45,9 +46,9 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+#  flutter_lints: ^2.0.0
   intl: ^0.17.0
-  pinput: ^2.2.16
+#  pinput: ^2.2.16
   google_maps_flutter: ^2.2.1
   getwidget: ^3.0.1
   permission_handler: ^10.2.0
@@ -56,8 +57,23 @@ dev_dependencies:
   fluttertoast: ^8.0.9
   image_picker: ^0.8.5+3
   shared_preferences: ^2.0.15
-  country_picker: ^2.0.19
+#  country_picker: ^2.0.19
   geolocator: ^8.0.0
+#  flutter_geocoder: ^0.2.2-nullsafety
+  geocoding: ^2.0.5
+#  geocode: 1.0.2
+  camera: ^0.8.1
+  google_mlkit_text_recognition: ^0.5.0
+  google_fonts: ^4.0.3
+
+flutter_icons:
+    android: true
+    ios: true
+    image_path_android: "assets/images/ic_launcher.png"
+#    image_path_ios: "assets/app_icons/ios.png"
+
+
+
 
 
 # For information on the generic Dart part of this file, see the

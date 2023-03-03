@@ -19,7 +19,7 @@ class _SoecsResultsScreenState extends State<SoecsResultsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.green),
+        iconTheme: IconThemeData(color: Color(0xFF75A843)),
         leading: Builder(
           builder: (BuildContext context) {
             return RotatedBox(
@@ -27,7 +27,7 @@ class _SoecsResultsScreenState extends State<SoecsResultsScreen> {
               child: IconButton(
                 icon: Icon(
                   Icons.arrow_back_ios,
-                  color: Colors.green,
+                  color: Color(0xFF75A843),
                 ),
                 onPressed: () {
                   Navigator.pushReplacement(
@@ -43,7 +43,7 @@ class _SoecsResultsScreenState extends State<SoecsResultsScreen> {
         title: Text(
           'SOECS Results',
           style: TextStyle(
-              color: Colors.green, fontWeight: FontWeight.bold, fontSize: 22),
+              color: Color(0xFF75A843), fontWeight: FontWeight.bold, fontSize: 22),
         ),
       ),
       body: SingleChildScrollView(
@@ -97,7 +97,7 @@ class _SoecsResultsScreenState extends State<SoecsResultsScreen> {
                       Text(
                         'Details',
                         style: TextStyle(
-                            color: Colors.green,
+                            color: Color(0xFF75A843),
                             fontWeight: FontWeight.bold,
                             fontSize: 22),
                       ),
@@ -223,9 +223,9 @@ class _SoecsResultsScreenState extends State<SoecsResultsScreen> {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
-                      side: const BorderSide(color: Colors.green, width: 0.5)),
+                      side: const BorderSide(color: Color(0xFF75A843), width: 0.5)),
                   child:
-                  const Text('Thanks!', style: TextStyle(color: Colors.green,fontSize: 22)),
+                  const Text('Thanks!', style: TextStyle(color: Color(0xFF75A843),fontSize: 22)),
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,

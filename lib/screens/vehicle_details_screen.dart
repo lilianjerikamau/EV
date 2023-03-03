@@ -65,9 +65,9 @@ class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
       appBar: AppBar(
         title: Text(
           'Vehicle Details',
-          style: TextStyle(color: Colors.green),
+          style: TextStyle(color: Color(0xFF75A843)),
         ),
-        iconTheme: IconThemeData(color: Colors.green),
+        iconTheme: IconThemeData(color: Color(0xFF75A843)),
         leading: Builder(
           builder: (BuildContext context) {
             return RotatedBox(
@@ -75,7 +75,7 @@ class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
               child: IconButton(
                 icon: Icon(
                   Icons.arrow_back_ios,
-                  color: Colors.green,
+                  color: Color(0xFF75A843),
                 ),
                 onPressed: () {
                   Navigator.pushReplacement(
@@ -91,8 +91,8 @@ class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(6.0),
           child: LinearProgressIndicator(
-            backgroundColor: Colors.green.withOpacity(0.3),
-            valueColor: new AlwaysStoppedAnimation<Color>(Colors.green),
+            backgroundColor: Color(0xFF75A843).withOpacity(0.3),
+            valueColor: new AlwaysStoppedAnimation<Color>(Color(0xFF75A843)),
             value: 0.5,
           ),
         ),
@@ -115,7 +115,7 @@ class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
                           style: Theme.of(context)
                               .textTheme
                               .subtitle2!
-                              .copyWith(color: Colors.green),
+                              .copyWith(color: Color(0xFF75A843)),
                         ),
                         Text(
                           "*",
@@ -153,7 +153,7 @@ class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
                           style: Theme.of(context)
                               .textTheme
                               .subtitle2!
-                              .copyWith(color: Colors.green),
+                              .copyWith(color: Color(0xFF75A843)),
                         ),
                         Text(
                           "*",
@@ -191,7 +191,7 @@ class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
                           style: Theme.of(context)
                               .textTheme
                               .subtitle2!
-                              .copyWith(color: Colors.green),
+                              .copyWith(color: Color(0xFF75A843)),
                         ),
                         Text(
                           "*",
@@ -246,7 +246,7 @@ class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
                           style: Theme.of(context)
                               .textTheme
                               .subtitle2!
-                              .copyWith(color: Colors.green),
+                              .copyWith(color: Color(0xFF75A843)),
                         ),
                         Text(
                           "*",
@@ -312,7 +312,7 @@ class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
                           style: Theme.of(context)
                               .textTheme
                               .subtitle2!
-                              .copyWith(color: Colors.green),
+                              .copyWith(color: Color(0xFF75A843)),
                         ),
                         Text(
                           "*",
@@ -363,7 +363,7 @@ class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
                           style: Theme.of(context)
                               .textTheme
                               .subtitle2!
-                              .copyWith(color: Colors.green),
+                              .copyWith(color: Color(0xFF75A843)),
                         ),
                         Text(
                           "*",
@@ -383,7 +383,7 @@ class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
                       decoration: const InputDecoration(
                           // hintText: 'User Name',
                           suffixIcon: Icon(
-                            color: Colors.green,
+                            color: Color(0xFF75A843),
                             Icons.calendar_today,
                           ),
                           border: OutlineInputBorder(),
@@ -434,7 +434,7 @@ class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
                             style: Theme.of(context)
                                 .textTheme
                                 .subtitle2!
-                                .copyWith(color: Colors.green),
+                                .copyWith(color: Color(0xFF75A843)),
                           ),
                         ),
                         Text(
@@ -494,7 +494,7 @@ class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
                                 style: Theme.of(context)
                                     .textTheme
                                     .subtitle2!
-                                    .copyWith(color: Colors.green),
+                                    .copyWith(color: Color(0xFF75A843)),
                               ),
                               Text(
                                 "*",

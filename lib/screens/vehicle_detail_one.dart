@@ -22,7 +22,7 @@ class _VehicleDetailOneState extends State<VehicleDetailOne> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.green),
+        iconTheme: IconThemeData(color: Color(0xFF75A843)),
         leading: Builder(
           builder: (BuildContext context) {
             return RotatedBox(
@@ -30,7 +30,7 @@ class _VehicleDetailOneState extends State<VehicleDetailOne> {
               child: IconButton(
                 icon: Icon(
                   Icons.arrow_back_ios,
-                  color: Colors.green,
+                  color: Color(0xFF75A843),
                 ),
                 onPressed: () {
                   Navigator.pushReplacement(
@@ -45,7 +45,7 @@ class _VehicleDetailOneState extends State<VehicleDetailOne> {
         backgroundColor: Colors.white,
         title: Text(
           widget.regno,
-          style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold,fontSize: 22),
+          style: TextStyle(color: Color(0xFF75A843), fontWeight: FontWeight.bold,fontSize: 22),
         ),
       ),
       body: Card(
@@ -64,7 +64,7 @@ class _VehicleDetailOneState extends State<VehicleDetailOne> {
             padding: const EdgeInsets.all(10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [Text('Vehicle details', style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold,fontSize: 22),), Text('Delete', style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold,fontSize: 18),)],
+              children: [Text('Vehicle details', style: TextStyle(color: Color(0xFF75A843), fontWeight: FontWeight.bold,fontSize: 22),), Text('Delete', style: TextStyle(color: Color(0xFF75A843), fontWeight: FontWeight.bold,fontSize: 18),)],
             ),
           ),
           Divider(

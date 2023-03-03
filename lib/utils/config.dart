@@ -19,6 +19,8 @@ class Endpoints {
   static const vehiclebrands = "${baseURL}main/api/v1/vehicle/brands/";
   static const vehiclemodels = "${baseURL}main/api/v1/vehicle/models/?vehicle_brand__id=";
   static const create_soecs = "${baseURL}main/api/v1/soecs/";
+  static const create_sodo = "${baseURL}main/api/v1/sodo/";
+  static const create_soda = "${baseURL}main/api/v1/soda/";
   static const get_vehicles = "${baseURL}main/api/v1/vehicles/?user_id=";
 }
 

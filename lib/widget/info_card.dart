@@ -23,7 +23,7 @@ class InfoCard extends StatelessWidget {
             icon,
             color: color,
           ),
-          trailing: Icon(Icons.arrow_forward_ios,color: Colors.green,),
+          trailing: Icon(Icons.arrow_forward_ios,color: Color(0xFF75A843),),
           title: Text(
             text,
             style: style,

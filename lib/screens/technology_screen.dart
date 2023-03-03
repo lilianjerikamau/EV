@@ -35,7 +35,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(8.0)),
                     side: BorderSide(
-                      color: Colors.green,
+                      color: Color(0xFF75A843),
                       width: 1, //<-- SEE HERE
                     ),
                   ),
@@ -53,7 +53,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                               children: [
                                 Expanded(
                                   child: TextFormField(
-                                    style: TextStyle(color: Colors.green),
+                                    style: TextStyle(color: Color(0xFF75A843)),
                                     // initialValue:
                                     //     ,
                                     // onSaved: (value) =>,
@@ -64,7 +64,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                                 ),
                                 Icon(
                                   Icons.check_circle,
-                                  color: Colors.green,
+                                  color: Color(0xFF75A843),
                                 ),
                               ]),
                         ),
@@ -75,7 +75,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                               children: [
                                 Expanded(
                                   child: TextFormField(
-                                    style: TextStyle(color: Colors.green),
+                                    style: TextStyle(color: Color(0xFF75A843)),
                                     // initialValue:
                                     //     ,
                                     // onSaved: (value) =>,
@@ -93,7 +93,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                               children: [
                                 Expanded(
                                   child: TextFormField(
-                                    style: TextStyle(color: Colors.green),
+                                    style: TextStyle(color: Color(0xFF75A843)),
                                     // initialValue:
                                     //     ,
                                     // onSaved: (value) =>,
@@ -128,7 +128,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(8.0)),
                     side: BorderSide(
-                      color: Colors.green,
+                      color: Color(0xFF75A843),
                       width: 1, //<-- SEE HERE
                     ),
                   ),
@@ -146,7 +146,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                               children: [
                                 Expanded(
                                   child: TextFormField(
-                                    style: TextStyle(color: Colors.green),
+                                    style: TextStyle(color: Color(0xFF75A843)),
                                     // initialValue:
                                     //     ,
                                     // onSaved: (value) =>,
@@ -157,7 +157,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                                 ),
                                 Icon(
                                   Icons.check_circle,
-                                  color: Colors.green,
+                                  color: Color(0xFF75A843),
                                 ),
                               ]),
                         ),
@@ -168,7 +168,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                               children: [
                                 Expanded(
                                   child: TextFormField(
-                                    style: TextStyle(color: Colors.green),
+                                    style: TextStyle(color: Color(0xFF75A843)),
                                     // initialValue:
                                     //     ,
                                     // onSaved: (value) =>,
@@ -200,7 +200,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(8.0)),
                     side: BorderSide(
-                      color: Colors.green,
+                      color: Color(0xFF75A843),
                       width: 1, //<-- SEE HERE
                     ),
                   ),
@@ -218,7 +218,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                               children: [
                                 Expanded(
                                   child: TextFormField(
-                                    style: TextStyle(color: Colors.green),
+                                    style: TextStyle(color: Color(0xFF75A843)),
                                     // initialValue:
                                     //     ,
                                     // onSaved: (value) =>,
@@ -230,7 +230,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                                 ),
                                 Icon(
                                   Icons.check_circle,
-                                  color: Colors.green,
+                                  color: Color(0xFF75A843),
                                 ),
                               ]),
                         ),
@@ -241,7 +241,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                               children: [
                                 Expanded(
                                   child: TextFormField(
-                                    style: TextStyle(color: Colors.green),
+                                    style: TextStyle(color: Color(0xFF75A843)),
                                     // initialValue:
                                     //     ,
                                     // onSaved: (value) =>,
@@ -274,7 +274,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(8.0)),
                     side: BorderSide(
-                      color: Colors.green,
+                      color: Color(0xFF75A843),
                       width: 1, //<-- SEE HERE
                     ),
                   ),
@@ -292,7 +292,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                               children: [
                                 Expanded(
                                   child: TextFormField(
-                                    style: TextStyle(color: Colors.green),
+                                    style: TextStyle(color: Color(0xFF75A843)),
                                     // initialValue:
                                     //     ,
                                     // onSaved: (value) =>,
@@ -303,7 +303,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                                 ),
                                 Icon(
                                   Icons.check_circle,
-                                  color: Colors.green,
+                                  color: Color(0xFF75A843),
                                 ),
                               ]),
                         ),
@@ -314,7 +314,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                               children: [
                                 Expanded(
                                   child: TextFormField(
-                                    style: TextStyle(color: Colors.green),
+                                    style: TextStyle(color: Color(0xFF75A843)),
                                     // initialValue:
                                     //     ,
                                     // onSaved: (value) =>,
@@ -332,7 +332,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                               children: [
                                 Expanded(
                                   child: TextFormField(
-                                    style: TextStyle(color: Colors.green),
+                                    style: TextStyle(color: Color(0xFF75A843)),
                                     // initialValue:
                                     //     ,
                                     // onSaved: (value) =>,

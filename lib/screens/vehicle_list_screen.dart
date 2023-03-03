@@ -65,16 +65,16 @@ getUserDetails();
             );
           },
           backgroundColor: Colors.white,
-          child: Icon(Icons.add,color: Colors.green,size: 40,), //icon inside button
+          child: Icon(Icons.add,color: Color(0xFF75A843),size: 40,), //icon inside button
         ),
 
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
         appBar: AppBar(
           title: Text(
             'My Vehicles',
-            style: TextStyle(color: Colors.green),
+            style: TextStyle(color: Color(0xFF75A843)),
           ),
-          iconTheme: IconThemeData(color: Colors.green),
+          iconTheme: IconThemeData(color: Color(0xFF75A843)),
           leading: Builder(
             builder: (BuildContext context) {
               return RotatedBox(
@@ -82,7 +82,7 @@ getUserDetails();
                 child: IconButton(
                   icon: Icon(
                     Icons.arrow_back_ios,
-                    color: Colors.green,
+                    color: Color(0xFF75A843),
                   ),
                   onPressed: () {
                     Navigator.pushReplacement(
@@ -147,14 +147,14 @@ getUserDetails();
                                 Text('EV Type :'+
                                   vehicles['vehicle_technology']['name'],
                                   style: TextStyle(
-                                      color: Colors.green,
+                                      color: Color(0xFF75A843),
                                       fontWeight: FontWeight.normal,
                                       fontSize: 15),
                                 ),
                                 Text('Mileage :'+
                                   '00065555',
                                   style: TextStyle(
-                                      color: Colors.green,
+                                      color: Color(0xFF75A843),
                                       fontWeight: FontWeight.normal,
                                       fontSize: 15),
                                 ),

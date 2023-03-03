@@ -33,7 +33,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.green),
+          iconTheme: IconThemeData(color: Color(0xFF75A843)),
           leading: Builder(
             builder: (BuildContext context) {
               return RotatedBox(
@@ -41,7 +41,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: IconButton(
                   icon: Icon(
                     Icons.arrow_back_ios,
-                    color: Colors.green,
+                    color: Color(0xFF75A843),
                   ),
                   onPressed: () {
                     Navigator.pushReplacement(
@@ -57,7 +57,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           title: Text(
             'Menu',
             style: TextStyle(
-                color: Colors.green, fontWeight: FontWeight.bold, fontSize: 22),
+                color: Color(0xFF75A843), fontWeight: FontWeight.bold, fontSize: 22),
           ),
         ),
         body: SafeArea(
@@ -73,7 +73,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   "John Doe",
                   style: TextStyle(
                     fontSize: 22.0,
-                    color: Colors.green,
+                    color: Color(0xFF75A843),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -91,9 +91,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 InfoCard(
                     text: phone,
                     icon: Icons.person,
-                    color: Colors.green,
+                    color: Color(0xFF75A843),
                     style: TextStyle(
-                        color: Colors.green,
+                        color: Color(0xFF75A843),
                         fontSize: 20,
                         fontFamily: "Source Sans Pro"),
                     onPressed: () async {
@@ -106,9 +106,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 InfoCard(
                     text: url,
                     icon: Icons.settings,
-                    color: Colors.green,
+                    color: Color(0xFF75A843),
                     style: TextStyle(
-                        color: Colors.green,
+                        color: Color(0xFF75A843),
                         fontSize: 20,
                         fontFamily: "Source Sans Pro"),
                     onPressed: () async {
@@ -121,11 +121,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 InfoCard(
                     text: location,
                     style: TextStyle(
-                        color: Colors.green,
+                        color: Color(0xFF75A843),
                         fontSize: 20,
                         fontFamily: "Source Sans Pro"),
                     icon: Icons.credit_card,
-                    color: Colors.green,
+                    color: Color(0xFF75A843),
                     onPressed: () async {
                       Navigator.pushReplacement(
                         context,
@@ -136,9 +136,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 InfoCard(
                     text: email,
                     icon: Icons.shield_outlined,
-                    color: Colors.green,
+                    color: Color(0xFF75A843),
                     style: TextStyle(
-                        color: Colors.green,
+                        color: Color(0xFF75A843),
                         fontSize: 20,
                         fontFamily: "Source Sans Pro"),
                     onPressed: () async {
@@ -151,9 +151,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 InfoCard(
                     text: about,
                     icon: Icons.info_outline_rounded,
-                    color: Colors.green,
+                    color: Color(0xFF75A843),
                     style: TextStyle(
-                        color: Colors.green,
+                        color: Color(0xFF75A843),
                         fontSize: 20,
                         fontFamily: "Source Sans Pro"),
                     onPressed: () async {

@@ -48,17 +48,18 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton:FloatingActionButton( //Floating action button on Scaffold
+        backgroundColor: const Color(0xFF75A843),
         onPressed: (){
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => ChooseVehicleScreen()),
           );
         },
-        child: Icon(Icons.shutter_speed_outlined,color: Colors.white,size: 40,), //icon inside button
+        child: Icon(Icons.speed_sharp,color: Colors.white,size: 40,), //icon inside button
       ),
 
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      backgroundColor: const Color(0xffC4DFCB),
+      backgroundColor: const Color(0xFF75A843),
       body: pages[pageIndex],
       bottomNavigationBar: buildMyNavBar(context),
     );
@@ -89,7 +90,7 @@ class _HomePageState extends State<HomePage> {
               icon: pageIndex == 0
                   ? const Icon(
                       Icons.home_filled,
-                      color: Colors.green,
+                      color: Color(0xFF75A843),
                       size: 30,
                     )
                   : const Icon(
@@ -98,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                       size: 30,
                     ),
             ),
-             pageIndex == 0? Text('Home',style: TextStyle(color: Colors.green),):Text('Home',style: TextStyle(color: Colors.grey),)
+             pageIndex == 0? Text('Home',style: TextStyle(color: Color(0xFF75A843)),):Text('Home',style: TextStyle(color: Colors.grey),)
             ],
           ),),
           SingleChildScrollView(child:Column(
@@ -112,7 +113,7 @@ class _HomePageState extends State<HomePage> {
               icon: pageIndex == 1
                   ? const Icon(
                       Icons.bar_chart,
-                      color: Colors.green,
+                      color: Color(0xFF75A843),
                       size: 30,
                     )
                   : const Icon(
@@ -121,7 +122,7 @@ class _HomePageState extends State<HomePage> {
                       size: 30,
                     ),
             ),
-              pageIndex == 1? Text('History',style: TextStyle(color: Colors.green),):Text('History',style: TextStyle(color: Colors.grey),)
+              pageIndex == 1? Text('History',style: TextStyle(color: Color(0xFF75A843)),):Text('History',style: TextStyle(color: Colors.grey),)
             ]
           ),
           ),
@@ -136,7 +137,7 @@ class _HomePageState extends State<HomePage> {
               icon: pageIndex == 2
                   ? const Icon(
                       Icons.drive_eta,
-                      color: Colors.green,
+                      color: Color(0xFF75A843),
                       size: 30,
                     )
                   : const Icon(
@@ -145,7 +146,7 @@ class _HomePageState extends State<HomePage> {
                       size: 30,
                     ),
             ),
-              pageIndex == 2? Text('Vehicles',style: TextStyle(color: Colors.green),):Text('Vehicles',style: TextStyle(color: Colors.grey),)
+              pageIndex == 2? Text('Vehicles',style: TextStyle(color: Color(0xFF75A843)),):Text('Vehicles',style: TextStyle(color: Colors.grey),)
     ]
           ),
           ),
@@ -161,7 +162,7 @@ class _HomePageState extends State<HomePage> {
                 icon: pageIndex == 3
                     ? const Icon(
                         Icons.more_horiz,
-                        color: Colors.green,
+                        color: Color(0xFF75A843),
                         size: 30,
                       )
                     : const Icon(
@@ -170,7 +171,7 @@ class _HomePageState extends State<HomePage> {
                         size: 30,
                       ),
 
-              ),            pageIndex == 3? Text('More',style: TextStyle(color: Colors.green),):Text('More',style: TextStyle(color: Colors.grey),)],
+              ),            pageIndex == 3? Text('More',style: TextStyle(color: Color(0xFF75A843)),):Text('More',style: TextStyle(color: Colors.grey),)],
             ),
           ),
         ],

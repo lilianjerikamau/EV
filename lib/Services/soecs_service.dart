@@ -15,9 +15,9 @@ class SoecsService{
       String kwh_charged,
       String location,
       int vehicle_id,
-      bool at_home,
-      int  state_id,
-      int country_id,
+      // bool at_home,
+      String  state,
+      String country,
       // String message,
       // String status,
 
@@ -28,9 +28,9 @@ class SoecsService{
       "value":kwh_charged,
       "location":location,
       "vehicle_id": vehicle_id!=null? vehicle_id.toString():null,
-      "state_id": state_id!=null? state_id.toString():null,
-      "at_home":at_home.toString(),
-      "country_id": country_id!=null?country_id.toString():null,
+      "state": state!=null? state:null,
+      // "at_home":at_home.toString(),
+      "country": country!=null?country:null,
       // "status":status
 
     };
@@ -39,7 +39,7 @@ class SoecsService{
       "location":location,
       "vehicle_id": vehicle_id!=null? vehicle_id.toString():null,
 
-      "at_home":at_home.toString(),
+      // "at_home":at_home.toString(),
 
       // "status":status
 
@@ -48,8 +48,8 @@ class SoecsService{
       "value":kwh_charged,
       "location":location,
       "vehicle_id": vehicle_id!=null? vehicle_id.toString():null,
-      "at_home":at_home.toString(),
-      "country_id": country_id!=null?country_id.toString():null,
+      // "at_home":at_home.toString(),
+      "country": country!=null?country:null,
       // "status":status
 
     };
@@ -60,18 +60,19 @@ class SoecsService{
     print("started processing with payload $vehicleDatas1");
 
 
-    if(at_home == true){
-response = await post(
-        Uri.parse(Endpoints.create_soecs),
-        body:vehicleDatas1,
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          // 'Authorization': 'Basic $value'
-        },
-      );
-print('vehicleDatas1');
-print(vehicleDatas1);
-    }else if(state_id !=null){
+//     if(at_home == true){
+// response = await post(
+//         Uri.parse(Endpoints.create_soecs),
+//         body:vehicleDatas1,
+//         headers: {
+//           'Content-Type': 'application/x-www-form-urlencoded',
+//           // 'Authorization': 'Basic $value'
+//         },
+//       );
+// print('vehicleDatas1');
+// print(vehicleDatas1);
+//     }else
+      if(state !=null){
  response = await post(
         Uri.parse(Endpoints.create_soecs),
         body:vehicleDatas,
@@ -95,7 +96,7 @@ print(vehicleDatas1);
  print(vehicleDatas2);
     };
     print('response ');
-    print(response.body);
+    print(response.statusCode);
     try {
       final  responseData = json.decode(response.body) as Map<String,dynamic> ;
       print(responseData);
@@ -107,9 +108,9 @@ print(vehicleDatas1);
         result = SoecsResponseModel(
           location: responseData['location'],
           vehicle_id: responseData['vehicle_id'],
-          at_home: responseData['at_home'],
-          country_id: responseData['country_id'],
-          state_id: responseData['state_id'],
+          // at_home: responseData['at_home'],
+          country_id: responseData['country'],
+          state_id: responseData['state'],
           status: responseData['status'],
           value: responseData['value'],
           soec_value:responseData['soec_value'],
@@ -117,12 +118,10 @@ print(vehicleDatas1);
         );
       }
     } on Exception {
-      result = {'status': false, 'message': "soecs error"};
+      print("exception");
+      // result = {'status': false, 'message': "soecs error"};
     }
     print(result);
     return result;
   }
-
-
-
 }

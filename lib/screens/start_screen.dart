@@ -38,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     text: 'Register & build your\n\n',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.green,
+                        color: Color(0xFF75A843),
                         fontSize: 18),
                     children: <TextSpan>[
                       TextSpan(
@@ -46,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         text: 'EV Ledger & Lifetime SOD',
 
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.green),
+                            fontWeight: FontWeight.bold, color: Color(0xFF75A843)),
                       )
                     ],
                   ),
@@ -83,9 +83,9 @@ class _SplashScreenState extends State<SplashScreen> {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
-                    side: const BorderSide(color: Colors.green, width: 0.5)),
+                    side: const BorderSide(color: Color(0xFF75A843), width: 0.5)),
                 child:
-                    const Text('Login', style: TextStyle(color: Colors.green)),
+                    const Text('Login', style: TextStyle(color: Color(0xFF75A843))),
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,

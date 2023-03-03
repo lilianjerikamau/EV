@@ -13,7 +13,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(  appBar: AppBar(
-      iconTheme: IconThemeData(color: Colors.green),
+      iconTheme: IconThemeData(color: Color(0xFF75A843)),
       leading: Builder(
         builder: (BuildContext context) {
           return RotatedBox(
@@ -21,7 +21,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
             child: IconButton(
               icon: Icon(
                 Icons.arrow_back_ios,
-                color: Colors.green,
+                color: Color(0xFF75A843),
               ),
               onPressed: () {
                 Navigator.pushReplacement(
@@ -37,7 +37,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
       title: Text(
         'History',
         style: TextStyle(
-            color: Colors.green, fontWeight: FontWeight.bold, fontSize: 22),
+            color: Color(0xFF75A843), fontWeight: FontWeight.bold, fontSize: 22),
       ),
     ),);
   }

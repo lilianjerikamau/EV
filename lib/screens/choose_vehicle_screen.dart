@@ -10,7 +10,7 @@ import 'package:ev_app/screens/vehicle_details_screen.dart';
 import 'package:ev_app/screens/vehicle_details_screen_two.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:progress_dialog/progress_dialog.dart';
 import '../Services/auth_service.dart';
 import '../Services/vehicle_service.dart';
 
@@ -30,11 +30,27 @@ class _ChooseVehicleScreenState extends State<ChooseVehicleScreen> {
   var country_id= null;
   var state_id =null;
   var reg_no =null;
+  var ev_technology =null;
   var model_no =null;
+  ProgressDialog? dial;
   @override
   void initState() {
     // vehiclelist = [
+    dial = new ProgressDialog(context,
+        type: ProgressDialogType.Normal);
 
+
+    dial?.style(
+      progressWidget: Container(
+          padding: EdgeInsets.all(8.0),
+          child: CircularProgressIndicator()),
+      backgroundColor: Colors.white,
+      messageTextStyle: TextStyle(
+          color: Color(0xFF75A843),
+          fontSize: 13.0,
+          fontWeight: FontWeight.bold),
+      message: 'Please wait',
+    );
 
     getUserDetails();
     super.initState();
@@ -51,16 +67,16 @@ class _ChooseVehicleScreenState extends State<ChooseVehicleScreen> {
             );
           },
           backgroundColor: Colors.white,
-          child: Icon(Icons.add,color: Colors.green,size: 40,), //icon inside button
+          child: Icon(Icons.add,color: Color(0xFF75A843),size: 40,), //icon inside button
         ),
 
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
         appBar: AppBar(
           title: Text(
             'My Vehicles',
-            style: TextStyle(color: Colors.green),
+            style: TextStyle(color: Color(0xFF75A843)),
           ),
-          iconTheme: IconThemeData(color: Colors.green),
+          iconTheme: IconThemeData(color: Color(0xFF75A843)),
           leading: Builder(
             builder: (BuildContext context) {
               return RotatedBox(
@@ -68,7 +84,7 @@ class _ChooseVehicleScreenState extends State<ChooseVehicleScreen> {
                 child: IconButton(
                   icon: Icon(
                     Icons.arrow_back_ios,
-                    color: Colors.green,
+                    color: Color(0xFF75A843),
                   ),
                   onPressed: () {
                     Navigator.pushReplacement(
@@ -100,8 +116,9 @@ class _ChooseVehicleScreenState extends State<ChooseVehicleScreen> {
                  veh_id =vehicles['id'];
                country_id= vehicles['country_95_percent_time']['id'];
                  model_no =  vehicles['vehicle_model']['name'];
-               state_id =vehicles['state_95_percent_time']['id'];
+               // state_id =vehicles['state_95_percent_time']['id'];
             reg_no =vehicles['vehicle_identification_number'];
+                 ev_technology=vehicles['ev_technology'];
 
               print('resullllllllllltsssssssss');
               print(veh_id);
@@ -112,7 +129,7 @@ class _ChooseVehicleScreenState extends State<ChooseVehicleScreen> {
 
                 });
                 Navigator.pushReplacement(context, MaterialPageRoute(
-                    builder: (context) =>ChooseMetricScreen(vehicle_id: veh_id, country_id: country_id, state_id:state_id, reg_no:reg_no, model:model_no ,)
+                    builder: (context) =>ChooseMetricScreen(vehicle_id: veh_id, country_id: country_id, state_id:state_id, reg_no:reg_no, model:model_no ,ev_technology:ev_technology)
                 )
                 );
               },
@@ -152,14 +169,14 @@ class _ChooseVehicleScreenState extends State<ChooseVehicleScreen> {
                                 // Text('EV Type :'+
                                 //     vehicles['vehicle_technology']['name'],
                                 //   style: TextStyle(
-                                //       color: Colors.green,
+                                //       color: Color(0xFF75A843),
                                 //       fontWeight: FontWeight.normal,
                                 //       fontSize: 15),
                                 // ),
                                 // Text('Mileage :'+
                                 //     '00065555',
                                 //   style: TextStyle(
-                                //       color: Colors.green,
+                                //       color: Color(0xFF75A843),
                                 //       fontWeight: FontWeight.normal,
                                 //       fontSize: 15),
                                 // ),
@@ -176,11 +193,13 @@ class _ChooseVehicleScreenState extends State<ChooseVehicleScreen> {
         ));
   }
   getVehicleList(){
+    dial?.show();
     VehicleService vehicleService = VehicleService(context);
     vehicleService.getVehicles(user_id!).then((value) => {
       print('statess'),
       setState(() {
         veh_list = value;
+        dial?.hide();
       }),
       print(value[0]['id']),
     });
@@ -190,6 +209,7 @@ class _ChooseVehicleScreenState extends State<ChooseVehicleScreen> {
       setState(() {
         user_id = value.user_id;
         getVehicleList();
+
       }),
     });
   }

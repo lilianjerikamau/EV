@@ -119,9 +119,9 @@ class _VehicleDetailsScreenTwoState extends State<VehicleDetailsScreenTwo> {
       appBar: AppBar(
         title: Text(
           'Vehicle Details',
-          style: TextStyle(color: Colors.green),
+          style: TextStyle(color: Color(0xFF75A843)),
         ),
-        iconTheme: IconThemeData(color: Colors.green),
+        iconTheme: IconThemeData(color: Color(0xFF75A843)),
         leading: Builder(
           builder: (BuildContext context) {
             return RotatedBox(
@@ -129,7 +129,7 @@ class _VehicleDetailsScreenTwoState extends State<VehicleDetailsScreenTwo> {
               child: IconButton(
                 icon: Icon(
                   Icons.arrow_back_ios,
-                  color: Colors.green,
+                  color: Color(0xFF75A843),
                 ),
                 onPressed: () {
                   Navigator.pushReplacement(
@@ -146,8 +146,8 @@ class _VehicleDetailsScreenTwoState extends State<VehicleDetailsScreenTwo> {
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(6.0),
           child: LinearProgressIndicator(
-            backgroundColor: Colors.green.withOpacity(0.3),
-            valueColor: new AlwaysStoppedAnimation<Color>(Colors.green),
+            backgroundColor: Color(0xFF75A843).withOpacity(0.3),
+            valueColor: new AlwaysStoppedAnimation<Color>(Color(0xFF75A843)),
             value: 0.5,
           ),
         ),
@@ -174,7 +174,7 @@ class _VehicleDetailsScreenTwoState extends State<VehicleDetailsScreenTwo> {
                                 style: Theme.of(context)
                                     .textTheme
                                     .subtitle2!
-                                    .copyWith(color: Colors.green),
+                                    .copyWith(color: Color(0xFF75A843)),
                                 children: <TextSpan>[
                                   TextSpan(
                                     //"${comment.data()['comment']}"
@@ -238,7 +238,7 @@ class _VehicleDetailsScreenTwoState extends State<VehicleDetailsScreenTwo> {
                                 style: Theme.of(context)
                                     .textTheme
                                     .subtitle2!
-                                    .copyWith(color: Colors.green),
+                                    .copyWith(color: Color(0xFF75A843)),
                                 children: <TextSpan>[
                                   TextSpan(
                                     //"${comment.data()['comment']}"
@@ -299,7 +299,7 @@ class _VehicleDetailsScreenTwoState extends State<VehicleDetailsScreenTwo> {
                                 style: Theme.of(context)
                                     .textTheme
                                     .subtitle2!
-                                    .copyWith(color: Colors.green),
+                                    .copyWith(color: Color(0xFF75A843)),
                                 children: <TextSpan>[
                                   TextSpan(
                                     //"${comment.data()['comment']}"
@@ -362,7 +362,7 @@ class _VehicleDetailsScreenTwoState extends State<VehicleDetailsScreenTwo> {
                                 style: Theme.of(context)
                                     .textTheme
                                     .subtitle2!
-                                    .copyWith(color: Colors.green),
+                                    .copyWith(color: Color(0xFF75A843)),
                                 children: <TextSpan>[
                                   TextSpan(
                                     //"${comment.data()['comment']}"
@@ -425,7 +425,7 @@ class _VehicleDetailsScreenTwoState extends State<VehicleDetailsScreenTwo> {
                                 style: Theme.of(context)
                                     .textTheme
                                     .subtitle2!
-                                    .copyWith(color: Colors.green),
+                                    .copyWith(color: Color(0xFF75A843)),
                                 children: <TextSpan>[
                                   TextSpan(
                                     //"${comment.data()['comment']}"
@@ -484,7 +484,7 @@ class _VehicleDetailsScreenTwoState extends State<VehicleDetailsScreenTwo> {
                                 style: Theme.of(context)
                                     .textTheme
                                     .subtitle2!
-                                    .copyWith(color: Colors.green),
+                                    .copyWith(color: Color(0xFF75A843)),
                                 children: <TextSpan>[
                                   TextSpan(
                                     //"${comment.data()['comment']}"
@@ -543,7 +543,7 @@ class _VehicleDetailsScreenTwoState extends State<VehicleDetailsScreenTwo> {
                             style: Theme.of(context)
                                 .textTheme
                                 .subtitle2!
-                                .copyWith(color: Colors.green),
+                                .copyWith(color: Color(0xFF75A843)),
                           ),
                           Text(
                             "*",
@@ -590,7 +590,7 @@ class _VehicleDetailsScreenTwoState extends State<VehicleDetailsScreenTwo> {
                             child: CircularProgressIndicator()),
                         backgroundColor: Colors.white,
                         messageTextStyle: TextStyle(
-                            color: Colors.green,
+                            color: Color(0xFF75A843),
                             fontSize: 13.0,
                             fontWeight: FontWeight.bold),
                         message: 'Please wait',

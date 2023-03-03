@@ -1,9 +1,46 @@
+import 'package:ev_app/models/sodo_responsemodel.dart';
 import 'package:ev_app/screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SodoResultsScreen extends StatefulWidget {
-  const SodoResultsScreen({Key? key}) : super(key: key);
+  final issoda;
+  final val;
+  final regno;
+  final date;
+
+  var pttwe;
+
+  var pusfse;
+
+  var embp;
+
+  var bttwe;
+
+  var busfse;
+
+  var btpei;
+
+  var ltee;
+
+  var pusese;
+
+  var lte;
+
+  var ptpei;
+
+  var lter;
+
+  var vwwei;
+
+  var tdp_percentage;
+
+  var sodo_percentage;
+
+  final gps_location;
+
+  var odo_reading;
+  SodoResultsScreen( {Key? key, required this.issoda,  this.val,   this.regno, this.date,  this.pttwe, this.pusfse, this.embp, this.bttwe, this.busfse, this.btpei, this.ltee, this.pusese, this.lte, this.ptpei, this.lter, this.vwwei, this.tdp_percentage, this.sodo_percentage, this.gps_location, this.odo_reading}) : super(key: key);
 
   @override
   State<SodoResultsScreen> createState() => _SodoResultsScreenState();
@@ -14,7 +51,7 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.green),
+        iconTheme: IconThemeData(color: Color(0xFF75A843)),
         leading: Builder(
           builder: (BuildContext context) {
             return RotatedBox(
@@ -22,7 +59,7 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
               child: IconButton(
                 icon: Icon(
                   Icons.arrow_back_ios,
-                  color: Colors.green,
+                  color: Color(0xFF75A843),
                 ),
                 onPressed: () {
                   Navigator.pushReplacement(
@@ -35,10 +72,14 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
           },
         ),
         backgroundColor: Colors.white,
-        title: Text(
+        title:widget.issoda!=true? Text(
           'SODO Results',
           style: TextStyle(
-              color: Colors.green, fontWeight: FontWeight.bold, fontSize: 22),
+              color: Color(0xFF75A843), fontWeight: FontWeight.bold, fontSize: 22),
+        ): Text(
+          'SODA Results',
+          style: TextStyle(
+              color: Color(0xFF75A843), fontWeight: FontWeight.bold, fontSize: 22),
         ),
       ),
       body: SingleChildScrollView(
@@ -60,14 +101,20 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        '91.29%',
+                    widget!=null?  Text(
+                       widget.val,
                         style: TextStyle(
                             fontSize: 25, fontWeight: FontWeight.bold),
-                      ),
-                      Text('SODO %',
+                      ):  Text(
+                      '',
+                      style: TextStyle(
+                          fontSize: 25, fontWeight: FontWeight.bold),
+                    ),
+                   widget.issoda!=true?   Text('SODO %',
                           style: TextStyle(
-                              fontSize: 25, fontWeight: FontWeight.bold)),
+                              fontSize: 25, fontWeight: FontWeight.bold)):Text('SODA %',
+                       style: TextStyle(
+                           fontSize: 25, fontWeight: FontWeight.bold)),
                     ]),
               ),
             ),
@@ -89,14 +136,18 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            'KCB 344k',
+                     widget.regno!=null?     Text(
+                            widget.regno,
                             style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold,color: Colors.green),
-                          ),
+                                fontSize: 20, fontWeight: FontWeight.bold,color: Color(0xFF75A843)),
+                          ):Text(
+                       '',
+                       style: TextStyle(
+                           fontSize: 20, fontWeight: FontWeight.bold,color: Color(0xFF75A843)),
+                     ),
                           Text('Plate number',
                               style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold,color: Colors.green)),
+                                  fontSize: 20, fontWeight: FontWeight.bold,color: Color(0xFF75A843))),
                         ]),
                   ),
                 ),
@@ -113,14 +164,18 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          '21.11.2022',
+                    widget.date!=null?    Text(
+                          widget.date,
                           style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold,color: Colors.green),
-                        ),
+                              fontSize: 20, fontWeight: FontWeight.bold,color: Color(0xFF75A843)),
+                        ):  Text(
+                      '',
+                      style: TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold,color: Color(0xFF75A843)),
+                    ),
                         Text('Date',
                             style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold,color: Colors.green)),
+                                fontSize: 20, fontWeight: FontWeight.bold,color: Color(0xFF75A843))),
                       ]),
                 ),),
               ]),
@@ -141,14 +196,18 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        'Muthaiga, Nairobi',
+                 widget.gps_location!=null?     Text(
+                        widget.gps_location,
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold,color: Colors.green),
-                      ),
+                            fontSize: 20, fontWeight: FontWeight.bold,color: Color(0xFF75A843)),
+                      ): Text(
+                   '',
+                   style: TextStyle(
+                       fontSize: 20, fontWeight: FontWeight.bold,color: Color(0xFF75A843)),
+                 ),
                       Text('Location',
                           style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold,color: Colors.green)),
+                              fontSize: 20, fontWeight: FontWeight.bold,color: Color(0xFF75A843))),
                     ]),
               ),
             ),
@@ -171,7 +230,7 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
                       Text(
                         'Detailed Report',
                         style: TextStyle(
-                            color: Colors.green,
+                            color: Color(0xFF75A843),
                             fontWeight: FontWeight.bold,
                             fontSize: 22),
                       ),
@@ -181,22 +240,22 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
                 Divider(
                   color: Colors.grey,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('ODOREG',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 18)),
-                      Text('129,000.00 ',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              color: Colors.grey))
-                    ],
-                  ),
-                ),
+                // Padding(
+                //   padding: const EdgeInsets.all(10),
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //     children: [
+                //       Text('ODOREG',
+                //           style: TextStyle(
+                //               fontWeight: FontWeight.bold, fontSize: 18)),
+                //       Text('',
+                //           style: TextStyle(
+                //               fontWeight: FontWeight.bold,
+                //               fontSize: 18,
+                //               color: Colors.grey))
+                //     ],
+                //   ),
+                // ),
                 SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.all(10),
@@ -206,7 +265,7 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
                       Text('ODO',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18)),
-                      Text('150,000.00 ',
+                      Text(widget.odo_reading,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
@@ -223,7 +282,7 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
                       Text('EMBP',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18)),
-                      Text('  12,000.00 ',
+                      Text(widget.embp,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
@@ -240,7 +299,7 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
                       Text('BKPL',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18)),
-                      Text('  17.54 ',
+                      Text(widget.busfse,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
@@ -257,11 +316,15 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
                       Text('BTTWE',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18)),
-                      Text('Ken  20,037.06 ',
+                     widget.bttwe!=null? Text(widget.bttwe,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
-                              color: Colors.grey))
+                              color: Colors.grey)):Text("",
+                         style: TextStyle(
+                             fontWeight: FontWeight.bold,
+                             fontSize: 18,
+                             color: Colors.grey))
                     ],
                   ),
                 ),
@@ -274,16 +337,20 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
                       Text('BUSFSE',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18)),
-                      Text('  5,009.26 ',
+                   widget.busfse!=null?   Text(widget.busfse,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
-                              color: Colors.grey))
+                              color: Colors.grey)):Text("widget.busfse",
+                       style: TextStyle(
+                           fontWeight: FontWeight.bold,
+                           fontSize: 18,
+                           color: Colors.grey))
                     ],
                   ),
                 ),
                 SizedBox(height: 10),
-                Padding(
+              widget.issoda!=true?  Padding(
                   padding: const EdgeInsets.all(10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -291,16 +358,20 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
                       Text('BTPEI',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18)),
-                      Text('  133.58 ',
+                      widget.btpei!=null?Text(widget.btpei,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              color: Colors.grey)):Text("",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
                               color: Colors.grey))
                     ],
                   ),
-                ),
+                ):Container(),
                 SizedBox(height: 10),
-                Padding(
+               widget.issoda!=true? Padding(
                   padding: const EdgeInsets.all(10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -308,16 +379,20 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
                       Text('LTEE',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18)),
-                      Text('  1,958.42 ',
+                      widget.ltee!=null?Text(widget.ltee,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              color: Colors.grey)):Text('',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
                               color: Colors.grey))
                     ],
                   ),
-                ),
+                ):Container(),
                 SizedBox(height: 10),
-                Padding(
+               widget.issoda!=true? Padding(
                   padding: const EdgeInsets.all(10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -325,16 +400,20 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
                       Text('PUSESE',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18)),
-                      Text('268.30 ',
+                     widget.pusese!=null? Text(widget.pusese,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
-                              color: Colors.grey))
+                              color: Colors.grey)): Text('',
+                         style: TextStyle(
+                             fontWeight: FontWeight.bold,
+                             fontSize: 18,
+                             color: Colors.grey))
                     ],
                   ),
-                ),
+                ):Container(),
                 SizedBox(height: 10),
-                Padding(
+               widget.issoda!=true? Padding(
                   padding: const EdgeInsets.all(10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -342,16 +421,20 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
                       Text('PTTWE',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18)),
-                      Text('_',
+                     widget.pttwe!=null? Text(widget.pttwe,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
-                              color: Colors.grey))
+                              color: Colors.grey)):Text('',
+                         style: TextStyle(
+                             fontWeight: FontWeight.bold,
+                             fontSize: 18,
+                             color: Colors.grey))
                     ],
                   ),
-                ),
+                ):Container(),
                 SizedBox(height: 10),
-                Padding(
+               widget.issoda!=true? Padding(
                   padding: const EdgeInsets.all(10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -359,14 +442,18 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
                       Text('PUSFSE',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18)),
-                      Text('_',
+                     widget.pusfse!=null? Text(widget.pusfse,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
-                              color: Colors.grey))
+                              color: Colors.grey)):Text('',
+                         style: TextStyle(
+                             fontWeight: FontWeight.bold,
+                             fontSize: 18,
+                             color: Colors.grey))
                     ],
                   ),
-                ),
+                ):Container(),
                 SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.all(10),
@@ -376,11 +463,15 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
                       Text('PTPEI',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18)),
-                      Text('_',
+                     widget.ptpei!=null? Text(widget.ptpei,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
-                              color: Colors.grey))
+                              color: Colors.grey)):Text('',
+                         style: TextStyle(
+                             fontWeight: FontWeight.bold,
+                             fontSize: 18,
+                             color: Colors.grey))
                     ],
                   ),
                 ),
@@ -393,7 +484,11 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
                       Text('LTE',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18)),
-                      Text('  2,226.73 ',
+                   widget.lte!=null  ? Text(widget.lte,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              color: Colors.grey)):Text(widget.lte,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
@@ -410,11 +505,15 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
                       Text('LTER',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18)),
-                      Text('  18,078.64 ',
+                    widget.lter!=null?  Text(widget.lter,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
-                              color: Colors.grey))
+                              color: Colors.grey)):Text('',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.grey))
                     ],
                   ),
                 ),
@@ -427,11 +526,15 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
                       Text('VWWEI',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18)),
-                      Text('  14.84 ',
+                     widget.vwwei!=null? Text(widget.vwwei,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
-                              color: Colors.grey))
+                              color: Colors.grey)):Text('',
+                         style: TextStyle(
+                             fontWeight: FontWeight.bold,
+                             fontSize: 18,
+                             color: Colors.grey))
                     ],
                   ),
                 ),
@@ -444,11 +547,15 @@ class _SodoResultsScreenState extends State<SodoResultsScreen> {
                       Text('TPD% ',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18)),
-                      Text('  100.00 ',
+                     widget.tdp_percentage!=null? Text(widget.tdp_percentage,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
-                              color: Colors.grey))
+                              color: Colors.grey)):Text('',
+                         style: TextStyle(
+                             fontWeight: FontWeight.bold,
+                             fontSize: 18,
+                             color: Colors.grey))
                     ],
                   ),
                 ),
